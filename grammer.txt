@@ -1,0 +1,66 @@
+<program> ::= CLASS <CName> { <block> }
+<block> ::= <const_def> <var_def> <proc_def> <stmt>
+<const_def> ::= <empty>
+<const_def> ::= CONST <const_list> ;
+<const_list> ::= <const_list> , <const> = <int>
+<const_list> ::= <const> = <int>
+<var_def> ::= <empty>
+<var_def> ::= VAR <var_list> ;
+<var_list> ::= <var_list> , <var>
+<var_list> ::= <var>
+<proc_def> ::= <empty>
+<proc_def> ::= PROC <PName> ( ) { <block> }
+<proc_def> ::= PROC <PName> <parm_list> { <block> }
+<stmt> ::= <empty>
+<stmt> ::= <simple_stmt>
+<stmt> ::= <call_stmt>
+<stmt> ::= <compound_stmt>
+<stmt> ::= <if_stmt>
+<stmt> ::= <while_stmt>
+<stmt> ::= <stmt_list>
+<empty> ::= 
+<simple_stmt> ::= <var> = <exp>
+<call_stmt> ::= CALL <PName> ( )
+<call_stmt> ::= CALL <PName> <parm_list>
+<parm_list> ::= ( <ident_list> )
+<ident_list> ::= <ident_list> , VAR <var>
+<ident_list> ::= <ident_list> , CONST <var>
+<ident_list> ::= VAR <var>
+<ident_list> ::= CONST <var>
+<compound_stmt> ::= { <stmt_list> }
+<stmt_list> ::= <stmt_list> ; <stmt>
+<stmt_list> ::= <stmt>
+<if_stmt> ::= IF <be> THEN <stmt>
+<while_stmt> ::= WHILE <be> DO <stmt>
+<be> ::= ODD <exp>
+<be> ::= <exp> <relop> <exp>
+<relop> ::= ==
+<relop> ::= !=
+<relop> ::= >
+<relop> ::= <
+<relop> ::= <=
+<relop> ::= >=
+<exp> ::= <addop> <term>
+<exp> ::= <exp> <addop> <exp>
+<addop> ::= +
+<addop> ::= -
+<term> ::= <fac>
+<term> ::= <term> <mulop> <fac>
+<mulop> ::= *
+<mulop> ::= /
+<fac> ::= <var>
+<fac> ::= <int>
+<fac> ::= ( <exp> )
+<PName> ::= <var>
+<CName> ::= <var>
+<var> ::= a
+<int> ::= a
+
+
+
+
+
+
+
+
+
